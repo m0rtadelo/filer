@@ -1,0 +1,21 @@
+{
+  "name": "filer",
+  "version": "1.0.0",
+  "description": "A tool for copy your media to a storage.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ./main.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "author": "https://github.com/m0rtadelo",
+  "license": "ISC",
+  "dependencies": {
+    "xel": "0.0.69"
+  },
+  "devDependencies": {
+    "electron": "^1.7.9",
+    "electron-builder": "^19.49.0"
+  }
+}

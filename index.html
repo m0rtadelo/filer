@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>XEL User Interface</title>
+    <link rel="stylesheet" href="node_modules/xel/stylesheets/material.theme.css">
+    <script src="node_modules/xel/xel.min.js"></script>
+</head>
+
+<body>
+    <x-box>
+        <x-tabs>
+            <x-tab selected onclick="switchTo('catalog');">
+                <x-label style="cursor:pointer;">Catalog</x-label>
+            </x-tab>
+
+            <x-tab onclick="switchTo('sanitizer');">
+                <x-label style="cursor:pointer;">Sanitizer</x-label>
+            </x-tab>
+
+            <x-tab onclick="switchTo('copy');">
+                <x-label style="cursor:pointer;">Copy</x-label>
+            </x-tab>
+        </x-tabs>
+    </x-box>
+    <x-box id="container" style="display: block;width:  100%;padding:  0px 30px;">
+        <x-box id="catalog">
+            <x-card id="load_catalog" style="display:none;">
+                    <header>Reading catalog...</header>
+                <main>
+                    <x-box><x-label id="folder"></x-label></x-box>
+                    <x-box><x-progressbar id="progress" value="10" max="100"></x-progressbar></x-box>
+                </main>
+            </x-card>
+            <x-card id="acatalog">
+                <main>
+                    <x-box>
+                        Click this button to add or update a catalog.
+                        <x-button id="add_catalog" toggled style="position:absolute; right: 60px;cursor:pointer;margin-top:-30px;">
+                            <x-icon name="folder"></x-icon>
+                            <x-label>Browse...</x-label>
+                        </x-button>
+                    </x-box>
+                </main>
+            </x-card>
+            <x-card>
+                <header>
+                    <strong>Available catalogs:</strong>
+                </header>
+                <main>
+                    <x-box id="catalogs" vertical style="overflow: scroll; height:150px;border: 1px solid #ddd;">
+                            <div>Catalog - D:\Root\bcdw\Bin</div>
+                            <div>Phone - C:\Program Files (x86)\Application Verifier</div>
+                            Catalog - D:\Root\bcdw\Bin<br>
+                            Phone - C:\Program Files (x86)\Application Verifier<br>
+                            Catalog - D:\Root\bcdw\Bin<br>
+                            Phone - C:\Program Files (x86)\Application Verifier<br>
+                            Catalog - D:\Root\bcdw\Bin<br>
+                            Phone - C:\Program Files (x86)\Application Verifier<br>
+                            Catalog - D:\Root\bcdw\Bin<br>
+                            Phone - C:\Program Files (x86)\Application Verifier<br>
+                            Catalog - D:\Root\bcdw\Bin<br>
+                            Phone - C:\Program Files (x86)\Application Verifier<br>
+                            Catalog - D:\Root\bcdw\Bin<br>
+                            Phone - C:\Program Files (x86)\Application Verifier<br>
+                            Catalog - D:\Root\bcdw\Bin<br>
+                            Phone - C:\Program Files (x86)\Application Verifier<br>
+                            Catalog - D:\Root\bcdw\Bin<br>
+                            Phone - C:\Program Files (x86)\Application Verifier<br>
+                            
+                    </x-box>
+                </main>
+            </x-card>
+        </x-box>
+        <x-box id="sanitizer">
+            <x-card>
+                <header>Sanitizer</header>
+                <main>
+                    Sanitizer
+                </main>
+            </x-card>
+            <x-box vertical style="margin-left: 30px;">
+                <x-input skin="flat">
+                    <x-icon name="search"></x-icon>
+                    <x-label>Search</x-label>
+                </x-input>
+
+                <x-input skin="flat" value="John Doe">
+                    <x-icon name="person"></x-icon>
+                    <x-label>Name</x-label>
+                </x-input>
+
+                <x-input skin="flat" type="email" value="john@doe.com" required>
+                    <x-icon name="email"></x-icon>
+                    <x-label>E-mail</x-label>
+                </x-input>
+
+                <x-input skin="flat" type="password" minlength="4" maxlength="12" value="abc123">
+                    <x-icon name="lock"></x-icon>
+                </x-input>
+            </x-box>
+        </x-box>
+        <x-box id="copy">
+            <x-card>
+                <header>Copy</header>
+                <main>
+                    Copy
+                </main>
+            </x-card>
+        </x-box>
+    </x-box>
+    <script>
+
+        function switchTo(panel) {
+            document.getElementById("catalog").style = "display:none;"
+            document.getElementById("sanitizer").style = "display:none;"
+            document.getElementById("copy").style = "display:none;"
+            document.getElementById(panel).style = "display:block;"
+        }
+        switchTo("catalog");
+
+        require("./src/index.js")
+    </script>
+</body>
+
+</html>
